@@ -33,3 +33,17 @@ openshift_master_htpasswd_users={'admin': 'admin:$apr1$Quy88czb$o.wmoPFJ9gscEp1c
 
 # define load balance method
 openshift_master_cluster_method=native
+
+# configuring an integrated registry
+# enable NFS as back end
+openshift_hosted_registry_storage_kind=nfs
+# define access mode. allow volume to be mounted as read/write by many nodes
+openshift_hosted_registry_storage_access_modes=['ReadWriteMany']
+# define name of the exports directory
+openshift_hosted_registry_storage_nfs_directory=/exports
+# define NFS storage mode
+openshift_hosted_registry_storage_nfs_options='*(rw,root_squash)'
+# define registry volume
+openshift_hosted_registry_storage_volume_name=registry
+# define registry volume size
+openshift_hosted_registry_storage_volume_size=10Gi
