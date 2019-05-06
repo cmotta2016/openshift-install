@@ -60,6 +60,9 @@ oreg_url=registry.mycluster.com:5000/openshift3/ose-${component}:${version}
 # modify default image stream location to value defined by oreg_url
 openshift_examples_modify_imagestreams=true
 
+# Add certificate configuration. See cert.sh script before
+openshift_master_ca_certificate={'certfile':'/root/openshift-install/openshift-cluster/mycluster.com/rootCA.crt','keyfile':'/root/openshift-install/openshift-cluster/mycluster.com/rootCA.key'}
+
 # Configure infra node selector
 openshift_router_selector='region=infra'
 openshift_registry_selector='region=infra'
